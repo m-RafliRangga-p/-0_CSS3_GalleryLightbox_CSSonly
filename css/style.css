@@ -121,6 +121,29 @@ h1{
     animation: slideDownFade .7s .5s forwards;
 }
 
+.overlay:target .next,
+.overlay:target .prev{
+    animation: Fade .5s .5s forwards;
+}
+
+/* Navigasi */
+.next, .prev {
+   width: 100px;
+   height: 100px;
+   background-image: url(../img/next-white.png); 
+   position: absolute;
+   text-indent: -9999px;
+   top: 40%;
+   margin-left: 0px;
+   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .5));
+   opacity: 0;
+}
+
+.prev{
+    background-image: url(../img/pre-white.png);
+    margin-left: -100px;
+}
+
 /* Animation */
 @keyframes zoomFade{
     0%{
@@ -143,5 +166,15 @@ h1{
     100%{
         opacity: 1;
         margin-top: 0;
+    }
+}
+
+@keyframes Fade{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
     }
 }
