@@ -67,3 +67,81 @@ h1{
     transform: scale(1) rotate(360deg);
 }
 
+
+/* Overlay */
+.container li .overlay img{
+    border-radius: 0%;
+}
+
+.overlay{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    transition: .7s;
+    z-index: 9999;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.overlay:target{
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.75);
+}
+
+.overlay img{
+    max-height: 100%;
+    box-shadow: 2px 2px 10px rgba(200,200,200,.8);
+}
+
+.overlay:target img{
+    animation: zoomFade .7s;
+}
+
+.overlay .close{
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    margin-left: 120px;
+    text-decoration: none;
+    color: red;
+    background-color: white;
+    padding: 5px;
+    line-height: 20px;
+    opacity: 0;
+}
+
+.overlay:target .close{
+    animation: slideDownFade .7s .5s forwards;
+}
+
+/* Animation */
+@keyframes zoomFade{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade{
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }
+
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+}
